@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Golden Fest 2 anos – Casa Verde | Golden Mix</title>
+    <meta name="description"
+        content="Cadastre-se para garantir 1 dos 30 óculos de sol gratuitos na comemoração de 2 anos da Golden Mix – Casa Verde. Retirada sábado (04/10/2025) na loja." />
+    <meta name="theme-color" content="#fec52e" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Golden Fest 2 anos – Casa Verde" />
+    <meta property="og:description"
+        content="30 óculos de sol para os 30 primeiros cadastros. Retire neste sábado na loja." />
+    <meta property="og:image" content="/og-goldenfest.jpg" />
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav" aria-label="Topo">
+            <div class="logo">
+                <!-- Coloque o arquivo logo-golden.png na mesma pasta do HTML -->
+                <img src="logo-golden.png" alt="Golden Mix" />
+            </div>
+            <a href="#form" class="cta-top" aria-label="Ir para formulário">Garantir meu óculos</a>
+        </nav>
+
+        <header class="hero">
+            <div>
+                <span class="ribbon" aria-label="Evento especial">
+                    Golden Fest 2 anos – Casa Verde
+                </span>
+                
+                <h1>30 óculos de sol <span style="color:var(--yellow)">gratuitos</span> para os primeiros cadastros</h1>
+                <p class="sub">Retire <strong>sábado, 04/10/2025</strong>, das <strong>10h às 15h</strong>, na
+                    <strong>Rua Zilda, 766 – Casa Verde, Zona Norte, São Paulo</strong>.
+                </p>
+
+                <div class="badge" style="margin:12px 0" aria-live="polite">
+                    
+                    <!-- clock icon -->
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 1a11 11 0 1 0 11 11A11.013 11.013 0 0 0 12 1Zm1 11h-5V9h2v2h3Z" />
+                    </svg>
+                    Restam <span id="leftInline" style="padding:0 6px">30</span> de 30
+                </div>
+
+                <div class="card">
+                    <div class="countdown" aria-label="Contagem regressiva para sábado">
+                        <div class="box">
+                            <div class="num" id="dd">00</div>
+                            <div class="lab">dias</div>
+                        </div>
+                        <div class="box">
+                            <div class="num" id="hh">00</div>
+                            <div class="lab">horas</div>
+                        </div>
+                        <div class="box">
+                            <div class="num" id="mm">00</div>
+                            <div class="lab">min</div>
+                        </div>
+                        <div class="box">
+                            <div class="num" id="ss">00</div>
+                            <div class="lab">seg</div>
+                        </div>
+                    </div>
+                    <div class="progress" aria-live="polite">
+                        <div class="progress__bar" aria-hidden="true">
+                            <div class="progress__fill" id="fill"></div>
+                        </div>
+                        <div class="progress__meta"><span>Disponíveis: <strong id="left">30</strong>/30</span><span
+                                id="reservados">0 reservados</span></div>
+                    </div>
+                </div>
+
+                <div class="hero-tags">
+                    <span class="ribbon" title="Brinde extra">🍦 Dia de Sorvete Gratuito — 100 primeiros clientes</span>
+                </div>
+            </div>
+
+            <div class="shot">
+                <div class="frame">
+                    <!-- Dica: troque a URL abaixo por uma foto de óculos (Pexels/Unsplash) -->
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1400&auto=format&fit=crop"
+                        alt="Óculos de sol – Golden Mix" />
+                </div>
+                <div class="hero-tags">
+                    <span class="ribbon">🎉 Aniversário da Loja</span>
+                    <span class="ribbon">🕶️ Edição limitada</span>
+                </div>
+            </div>
+        </header>
+
+        <div id="form" class="card">
+            <h2 style="margin:0 0 10px;font-size:24px">Garanta seu óculos agora</h2>
+            <form id="leadForm" novalidate>
+                <!-- honeypot anti-spam -->
+                <input type="text" id="company" name="company" tabindex="-1" autocomplete="off"
+                    style="position:absolute;left:-10000px;opacity:0" />
+
+                <div class="field">
+                    <label for="nome">Nome completo</label>
+                    <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
+                    <small class="error" data-err="nome"></small>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" placeholder="seu@email.com" required />
+                        <small class="error" data-err="email"></small>
+                    </div>
+                    <div class="field">
+                        <label for="whatsapp">WhatsApp</label>
+                        <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric"
+                            placeholder="(11) 9 0000-0000" maxlength="20" required />
+                        <small class="error" data-err="whatsapp"></small>
+                    </div>
+                </div>
+
+                <!-- UTM capture (preenchido via JS) -->
+                <input type="hidden" name="utm_source" id="utm_source" />
+                <input type="hidden" name="utm_medium" id="utm_medium" />
+                <input type="hidden" name="utm_campaign" id="utm_campaign" />
+
+                <label class="consent"><input id="consent" type="checkbox" required /> Autorizo o contato por WhatsApp e
+                    e-mail conforme a <a href="#lgpd">política de privacidade</a>.</label>
+                <button class="btn" id="submitBtn" type="submit">Quero meu óculos</button>
+                <div class="note">Documento do titular obrigatório na retirada. Válido para os 30 primeiros confirmados.
+                </div>
+                <div id="formMsg" role="status" aria-live="polite"></div>
+            </form>
+        </div>
+
+        <!-- Seções discretas ao final -->
+        <section class="low" aria-label="Informações adicionais">
+            <details class="ac">
+                <summary>Como funciona</summary>
+                <ol>
+                    <li>Cadastre-se com seus dados corretos.</li>
+                    <li>Receba confirmação por WhatsApp.</li>
+                    <li>Retire sábado (04/10/2025), das 10h às 15h, levando documento.</li>
+                </ol>
+            </details>
+            <details class="ac">
+                <summary>Onde retirar</summary>
+                <p>Golden Mix – Unidade Casa Verde<br />Rua Zilda, 766 – Casa Verde – São Paulo/SP</p>
+                <p><a href="https://maps.google.com/?q=Rua+Zilda+766+Casa+Verde+S%C3%A3o+Paulo" target="_blank"
+                        rel="noopener">Abrir no Google Maps</a></p>
+            </details>
+            <details class="ac" id="lgpd">
+                <summary>Dúvidas frequentes</summary>
+                <ul>
+                    <li><strong>Tem custo?</strong> Não. É um presente de aniversário para os 30 primeiros cadastros
+                        confirmados.</li>
+                    <li><strong>Posso reservar para outra pessoa?</strong> Não. O cadastro é pessoal e intransferível.
+                    </li>
+                    <li><strong>Perdi a confirmação, ainda tenho direito?</strong> A retirada depende da confirmação e
+                        da disponibilidade no momento da chegada.</li>
+                </ul>
+            </details>
+        </section>
+
+        <footer>
+            <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+                <div>© <span id="year"></span> Golden Mix — Todos os direitos reservados.</div>
+                <div class="social">
+                    <!-- placeholders: troque pelos links reais -->
+                    <a href="#" aria-label="Instagram" title="Instagram">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="WhatsApp" title="WhatsApp">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.1 1.51 5.83L0 24l6.29-1.64A11.95 11.95 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22a9.9 9.9 0 01-5.05-1.39l-.36-.21-3.73.97.99-3.63-.23-.37A9.9 9.9 0 012 12C2 6.49 6.49 2 12 2s10 4.49 10 10-4.49 10-10 10zm5.46-7.35c-.3-.15-1.77-.87-2.05-.97-.28-.1-.49-.15-.7.15-.2.3-.8.97-.98 1.17-.18.2-.36.23-.66.08-.3-.15-1.24-.46-2.36-1.47-.87-.77-1.46-1.72-1.64-2.01-.17-.3-.02-.46.13-.61.13-.13.3-.36.44-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.7-1.69-.96-2.32-.25-.6-.51-.52-.7-.53l-.6-.01c-.2 0-.53.08-.8.38-.28.3-1.06 1.04-1.06 2.54s1.09 2.94 1.25 3.15c.15.2 2.15 3.28 5.22 4.6.73.31 1.3.49 1.74.63.73.23 1.4.2 1.93.12.59-.09 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CTA fixo mobile -->
+    <div class="cta-mobile"><a href="#form" class="btn">Quero meu óculos</a></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
