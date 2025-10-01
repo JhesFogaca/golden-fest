@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-
+    <link rel="shortcut icon" href="favic.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <!-- Open Graph / SEO -->
     <meta property="og:type" content="website" />
@@ -28,7 +28,6 @@
     <div class="container">
         <nav class="nav" aria-label="Topo">
             <div class="logo">
-                <!-- Coloque o arquivo logo-golden.png na mesma pasta do HTML -->
                 <img src="logo-golden.png" alt="Golden Mix" />
             </div>
             <a href="#form" class="cta-top" aria-label="Ir para formulário">Garantir meu óculos</a>
@@ -36,17 +35,15 @@
 
         <header class="hero">
             <div>
-                <span class="ribbon" aria-label="Evento especial">
-                    Golden Fest 2 anos – Casa Verde
+                <span class="ribbon titulo" aria-label="Evento especial">
+                    <img src="title.png" alt="Golden Mix" />
                 </span>
-                
+
                 <h1>30 óculos de sol <span style="color:var(--yellow)">gratuitos</span> para os primeiros cadastros</h1>
-                <p class="sub">Retire <strong>sábado, 04/10/2025</strong>, das <strong>10h às 15h</strong>, na
-                    <strong>Rua Zilda, 766 – Casa Verde, Zona Norte, São Paulo</strong>.
+                <p class="sub">Retire <strong>sábado 04 de Outubro </strong>, das <strong>10h às 15h</strong>
                 </p>
 
                 <div class="badge" style="margin:12px 0" aria-live="polite">
-                    
                     <!-- clock icon -->
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M12 1a11 11 0 1 0 11 11A11.013 11.013 0 0 0 12 1Zm1 11h-5V9h2v2h3Z" />
@@ -54,7 +51,7 @@
                     Restam <span id="leftInline" style="padding:0 6px">30</span> de 30
                 </div>
 
-                <div class="card">
+                <div class="card tempo">
                     <div class="countdown" aria-label="Contagem regressiva para sábado">
                         <div class="box">
                             <div class="num" id="dd">00</div>
@@ -83,19 +80,18 @@
                 </div>
 
                 <div class="hero-tags">
-                    <span class="ribbon" title="Brinde extra">🍦 Dia de Sorvete Gratuito — 100 primeiros clientes</span>
+                    <span class="ribbon sorvete" title="Brinde extra">🍦 Dia de Sorvete Gratuito</span>
                 </div>
             </div>
 
             <div class="shot">
                 <div class="frame">
                     <!-- Dica: troque a URL abaixo por uma foto de óculos (Pexels/Unsplash) -->
-                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1400&auto=format&fit=crop"
+                    <img src="niver golden.jpg"
                         alt="Óculos de sol – Golden Mix" />
                 </div>
                 <div class="hero-tags">
-                    <span class="ribbon">🎉 Aniversário da Loja</span>
-                    <span class="ribbon">🕶️ Edição limitada</span>
+                    <span class="ribbon end">🎉 Rua Zilda, 766 – Casa Verde, Zona Norte, São Paulo.</span>
                 </div>
             </div>
         </header>
@@ -172,16 +168,16 @@
 
         <footer>
             <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-                <div>© <span id="year"></span> Golden Mix — Todos os direitos reservados.</div>
+                <div>© <span id="year"></span> Jhes Fogaça — Todos os direitos reservados.</div>
                 <div class="social">
                     <!-- placeholders: troque pelos links reais -->
-                    <a href="#" aria-label="Instagram" title="Instagram">
+                    <a href="https://www.instagram.com/goldenmix.casaverde/" target="_blank" aria-label="Instagram" title="Instagram">
                         <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                             <path
                                 d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
                         </svg>
                     </a>
-                    <a href="#" aria-label="WhatsApp" title="WhatsApp">
+                    <a href="https://api.whatsapp.com/send?phone=551138583683&text=Oi%2C%20tudo%20bem%3F%20Aguardo%20confirmação%20do%20presente%20de%20aniversário." target="_blank" aria-label="WhatsApp" title="WhatsApp">
                         <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                             <path
                                 d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.1 1.51 5.83L0 24l6.29-1.64A11.95 11.95 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22a9.9 9.9 0 01-5.05-1.39l-.36-.21-3.73.97.99-3.63-.23-.37A9.9 9.9 0 012 12C2 6.49 6.49 2 12 2s10 4.49 10 10-4.49 10-10 10zm5.46-7.35c-.3-.15-1.77-.87-2.05-.97-.28-.1-.49-.15-.7.15-.2.3-.8.97-.98 1.17-.18.2-.36.23-.66.08-.3-.15-1.24-.46-2.36-1.47-.87-.77-1.46-1.72-1.64-2.01-.17-.3-.02-.46.13-.61.13-.13.3-.36.44-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.7-1.69-.96-2.32-.25-.6-.51-.52-.7-.53l-.6-.01c-.2 0-.53.08-.8.38-.28.3-1.06 1.04-1.06 2.54s1.09 2.94 1.25 3.15c.15.2 2.15 3.28 5.22 4.6.73.31 1.3.49 1.74.63.73.23 1.4.2 1.93.12.59-.09 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z" />

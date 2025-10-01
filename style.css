@@ -32,7 +32,7 @@
         .container {
             max-width: 1120px;
             margin: 0 auto;
-            padding: 24px
+            padding: 14px
         }
 
         /* NAV / HERO */
@@ -40,7 +40,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px
+            gap: 12px
         }
 
         .nav .logo {
@@ -50,7 +50,7 @@
         }
 
         .nav .logo img {
-            height: 36px
+            height: 56px
         }
 
         .nav a.cta-top {
@@ -62,15 +62,15 @@
             color: var(--yellow);
             padding: 10px 14px;
             border-radius: 12px;
-            font-weight: 800
+            font-weight: 600;
         }
 
         header.hero {
             display: grid;
             grid-template-columns: 1.15fr .85fr;
-            gap: 34px;
+            gap: 18px;
             align-items: center;
-            padding: 28px 0
+            padding: 1px 0;
         }
 
         @media (max-width:900px) {
@@ -95,11 +95,23 @@
             display: inline-flex;
             gap: 10px;
             align-items: center;
+            justify-content: center;
             background: var(--yellow);
             color: var(--black);
-            padding: 8px 12px;
-            border-radius: 999px;
-            font-weight: 800
+            padding: 3px;
+            border-radius: 12px;
+            font-weight: 600;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.150);
+            margin-bottom: 8px;
+        }
+        .end{
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .titulo img{
+            width: 70%;
         }
 
         .ribbon svg {
@@ -112,15 +124,21 @@
             background: #fff;
             border: 1px solid var(--gray-200);
             border-radius: 16px;
-            padding: 22px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, .06)
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.150);
+            
+        }
+        .tempo{
+            width: 100%;
+            justify-items: center;
         }
 
         /* Countdown + estoque */
         .countdown {
             display: flex;
             gap: 8px;
-            margin: 2px 0 5px
+            margin: 2px 0 5px;
+            justify-content: center;
         }
 
         .box {
@@ -129,7 +147,7 @@
             border-radius: 12px;
             padding: 10px 12px;
             text-align: center;
-            min-width: 72px
+            min-width: 72px;
         }
 
         .box .num {
@@ -143,7 +161,9 @@
         }
 
         .progress {
-            margin: 12px 0 0
+            margin: 12px 0 0;
+            width: 90%;
+            
         }
 
         .progress__bar {
@@ -151,14 +171,16 @@
             background: #f3f4f6;
             border: 1px solid var(--gray-300);
             border-radius: 999px;
-            overflow: hidden
+            overflow: hidden;
+            
         }
 
         .progress__fill {
             height: 100%;
             width: 0%;
             background: linear-gradient(90deg, var(--yellow), #ffb600);
-            transition: width .6s ease
+            transition: width .6s ease;
+        
         }
 
         .progress__meta {
@@ -171,20 +193,21 @@
 
         /* Badge Escassez */
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            padding: 2px;
             background: var(--black);
-            color: var(--yellow);
-            border-radius: 999px;
-            padding: 8px 12px;
+            color: white;
+            border-radius: 12px;
             font-weight: 800;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, .12)
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.363);
+            width: 100%;
         }
 
         .badge svg {
             width: 18px;
-            height: 18px
+            height: 18px;
         }
 
         /* Form */
@@ -240,7 +263,7 @@
             background: var(--black);
             color: var(--yellow);
             font-weight: 800;
-            padding: 14px 18px;
+            padding: 8px 18px;
             border-radius: 14px;
             cursor: pointer;
             transition: transform .18s ease, box-shadow .18s ease
@@ -278,7 +301,7 @@
 
         /* Visual Right (foto/hero) */
         .shot {
-            position: relative
+            position: relative;
         }
 
         .shot::before {
@@ -294,10 +317,9 @@
 
         .shot .frame {
             position: relative;
-            background: #fff;
-            border: 1px solid var(--gray-200);
-            border-radius: 18px;
-            padding: 14px;
+            background: var(--yellow);
+            border-radius: 12px;
+            padding: 6px;
             overflow: hidden
         }
 
@@ -313,25 +335,26 @@
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 12px
+            border-radius: 12px;
         }
 
         .hero-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 12px
+            margin-top: 12px;
         }
 
         /* CTA fixo no mobile */
         .cta-mobile {
             position: fixed;
-            left: 16px;
-            right: 16px;
+            left: 50%;
+            transform: translateX(-50%);
             bottom: 16px;
             z-index: 50;
             display: none
         }
+
 
         .cta-mobile .btn {
             width: 100%;
@@ -366,21 +389,20 @@
         }
 
         footer {
-            padding: 28px 0;
             color: #555;
             font-size: 12px
         }
 
         .social {
             display: flex;
-            gap: 12px;
-            align-items: center
+            gap: 28px;
+            align-items: center;
         }
 
         .icon {
-            width: 18px;
-            height: 18px;
-            display: inline-block
+            width: 28px;
+            height: 28px;
+            display: inline-block;
         }
 
         a {
