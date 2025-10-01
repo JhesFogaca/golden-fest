@@ -56,13 +56,16 @@
         .nav a.cta-top {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
             text-decoration: none;
-            background: var(--black);
-            color: var(--yellow);
-            padding: 10px 14px;
-            border-radius: 12px;
             font-weight: 600;
+        }
+
+        .cta-top{
+            border-radius: 12px;
+            border: 2px solid var(--gray-900);
+            background: transparent;
+            color: var(--black);
+            padding: 4px 8px;
         }
 
         header.hero {
@@ -390,12 +393,13 @@
 
         footer {
             color: #555;
-            font-size: 12px
+            font-size: 12px;
+            text-align: center;
         }
 
         .social {
             display: flex;
-            gap: 28px;
+            gap: 10px;
             align-items: center;
         }
 
