@@ -106,5 +106,91 @@ form.addEventListener('submit', async (e) => {
     }
 });
 
+// ===== Backend – contador de inscritos =====
+const BACKEND_URL = "https://webhook.franciscojlalves.com.br/webhook/get_leads";
+const POLL_INTERVAL_MS = 30000; // 30s
+const FETCH_TIMEOUT_MS = 9000; // timeout de rede
+
+function extrairArray(data) {
+  // Se vier string JSON, parseia
+  if (typeof data === "string") {
+    try {
+      data = JSON.parse(data);
+    } catch {}
+  }
+  // Se já for array
+  if (Array.isArray(data)) return data;
+
+  // Se for objeto, tenta padrões comuns
+  if (data && typeof data === "object") {
+    // Formato comum do n8n: { rows: [...] } ou { rows: [{ json: {...} }, ...] }
+    if (Array.isArray(data.rows)) {
+      const rows = data.rows;
+      if (
+        rows.length &&
+        rows[0] &&
+        typeof rows[0] === "object" &&
+        "json" in rows[0]
+      ) {
+        return rows.map((r) => r.json);
+      }
+      return rows;
+    }
+    // Outros nomes frequentes
+    for (const k of ["count"]) {
+      if (typeof data[k] === "number") return { __count__: data[k] };
+    }
+    for (const k of ["data", "items", "result", "values", "records", "body"]) {
+      if (Array.isArray(data[k])) return data[k];
+    }
+  }
+  return [];
+}
+
+async function getInscritosCount(signal) {
+  const res = await fetch(BACKEND_URL, {
+    headers: { Accept: "application/json" },
+    signal,
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const payload = await res.json();
+
+  // Se o backend já devolver { count: N }
+  if (payload && typeof payload.count === "number") {
+    return payload.count;
+  }
+
+  // Senão, extraímos o array e contamos
+  const arr = extrairArray(payload);
+  // Caso extrairArray tenha devolvido { __count__: N }
+  if (arr && typeof arr.__count__ === "number") return arr.__count__;
+  return Array.isArray(arr) ? arr.length : 0;
+}
+
+async function initBackendStock() {
+  try {
+    // timeout manual para não deixar fetch pendurado
+    const controller = new AbortController();
+    const to = setTimeout(() => controller.abort("timeout"), FETCH_TIMEOUT_MS);
+    const backendCount = await getInscritosCount(controller.signal);
+    clearTimeout(to);
+
+    // Não permitir que o número "caia" se o usuário acabou de ver um valor maior localmente
+    const novo = Math.min(backendCount, TOTAL);
+    reservas = Math.max(reservas, novo);
+    renderStock();
+    // console.debug('[escassez] backend:', backendCount, 'reservas:', reservas);
+  } catch (err) {
+    console.warn("[escassez] falha ao consultar backend:", err);
+    // Fallback: mantém o valor local (localStorage) e não quebra nada
+  }
+}
+
+// Inicializa ao carregar (se seu <script> está no fim do <body>, pode chamar direto)
+initBackendStock();
+// Mantém sincronizado
+setInterval(initBackendStock, POLL_INTERVAL_MS);
+
 // Ano no footer
+
 document.getElementById('year').textContent = new Date().getFullYear();
